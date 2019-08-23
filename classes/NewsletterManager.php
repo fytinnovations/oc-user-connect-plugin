@@ -3,6 +3,8 @@
 use Input;
 use Fytinnovations\UserConnect\Models\Settings;
 use Fytinnovations\UserConnect\Models\Subscriber;
+use Mail;
+
 class NewsletterManager 
 {
     public static function subscribe(){
@@ -11,6 +13,7 @@ class NewsletterManager
         $valid_till=date('Y-m-d H:i:s', strtotime('+'.Settings::instance()->key_expires_in.' day', time()));
         $subscriber->valid_till=$valid_till;
         if($subscriber->save()){
+            static::sendEmailIfEnabled($subscriber);
             return true;
         }
         return false;
@@ -57,5 +60,21 @@ class NewsletterManager
         ];
 
         return $response;
+    }
+
+    /**
+     * Send a Email for verification if Enabled Inside of UserConnect Settings
+     */
+    public static function sendEmailIfEnabled($subscriber){
+        $vars = [
+            'link' => url('/'.$subscriber->email.'/'.$subscriber->verification_key),
+            "app_name"=>config('app.name')
+        ];
+        if(Settings::get('verify_emails',false)){
+            Mail::send('fytinnovations.userconnect::mail.message', $vars, function($message) use ($subscriber){
+                $message->to($subscriber->email, 'New Subscriber');
+                $message->subject('Newletter Subscription Verification');
+            });
+        }
     }
 }

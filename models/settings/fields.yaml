@@ -31,8 +31,11 @@ tabs:
             span: left
         key_expires_in:
             label: Verification Key Validation Period
-            type: number
-            comment: Number of days the verification key will be valid after generation.
+            type: balloon-selector
+            options:
+                1: 1 day
+                2: 2 days
+                3: 5 days
             tab: Newsletter
             default: 1
             span: left
@@ -40,3 +43,4 @@ tabs:
                 action: show
                 field: verify_emails
                 condition: checked
+

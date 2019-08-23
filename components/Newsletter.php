@@ -21,6 +21,7 @@ class Newsletter extends ComponentBase
     }
 
     public function onRun(){
+        $this->addCss('/plugins/fytinnovations/userconnect/assets/css/newsletter.css');
         $this->page['primary_color']=Settings::get('newsletter_primary_color', "#ff4500")??"#ff4500";
         $this->page['secondary_color']=Settings::get('newsletter_secondary_color', "#ffffff")??"#ffffff";
     }

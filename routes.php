@@ -5,7 +5,7 @@ use Fytinnovations\UserConnect\Classes\NewsletterManager;
         if($result["status"]){
             return $result["message"];
         }else{
-            App::abort(404);
+            return $result["message"];
         }
     });  
 ?>
