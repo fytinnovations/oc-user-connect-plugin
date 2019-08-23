@@ -1,0 +1,12 @@
+{% if(subscribe_success)%}
+    <span id="span" class="uc-success-message">{{newsletter_success_message}}</span>
+{% else %}
+<form data-request="{{__SELF__}}::onSubscribe" data-request-update="'{{ __SELF__ }}::form': '#uc-newsletter-form'"> 
+    <input type="email" class="uc-newsletter-inp" name="email"  placeholder="Newsletter Subscription" required>
+    <input type="submit" class="uc-newsletter-btn" value="Subscribe"data-attach-loading>
+    {% flash error %}
+        <span id="uc-newsletter-error">{{ message }}</span>
+    {% endflash %}
+</form>
+{% endif%}
+

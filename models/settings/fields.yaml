@@ -1,0 +1,42 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        newsletter_primary_color:
+            label: Primary Color
+            type: colorpicker
+            commentAbove: Used as background for button and success message
+            default: #ff4500
+            span: left
+            tab: Newsletter
+        newsletter_secondary_color:
+            label: Secondary Color
+            type: colorpicker
+            commentAbove: Used as text color for button and success message
+            span: right
+            tab: Newsletter
+        newsletter_success_message:
+            label: Success Message
+            comment: Text display when user sucessfully subsribes to the newsletter
+            type: text
+            default: Thankyou for subscribing.
+            tab: Newsletter
+        verify_emails:
+            label: Verify Via Email
+            comment: Validate the correctness of the Email 
+            type: switch
+            tab: Newsletter
+            span: left
+        key_expires_in:
+            label: Verification Key Validation Period
+            type: number
+            comment: Number of days the verification key will be valid after generation.
+            tab: Newsletter
+            default: 1
+            span: left
+            trigger:
+                action: show
+                field: verify_emails
+                condition: checked
