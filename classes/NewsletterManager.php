@@ -27,14 +27,35 @@ class NewsletterManager
     }
 
     public static function verifyEmail($email,$verification_key){
+        $response=[
+            "status"=>true,
+            "message"=>""
+        ];
         $subscriber=Subscriber::where('email',$email)->first();
+
+        //If already verified no need to verify again
+        if($subscriber->is_verified){
+            $response=[
+                "status"=>true,
+                "message"=>"You have been already assigned to the subscribers list"
+            ];
+        }
+
         $cur_date_time=date('Y-m-d H:i:s');
         if(count($subscriber)>0 && $subscriber->verification_key==$verification_key && $subscriber->valid_till>$cur_date_time){
             $subscriber->is_verified=true;
             $subscriber->verified_at=$cur_date_time;
             $subscriber->save();
-            return true;
+            $response=[
+                "status"=>true,
+                "message"=>"Congratulations, You have been added to the subscribers list"
+            ];
         }
-        return false;
+        $response=[
+            "status"=>false,
+            "message"=>"Verification Failed! Please try again!"
+        ];
+
+        return $response;
     }
 }
