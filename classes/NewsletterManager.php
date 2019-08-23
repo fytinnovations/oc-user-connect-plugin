@@ -42,23 +42,25 @@ class NewsletterManager
                 "status"=>true,
                 "message"=>"You have been already assigned to the subscribers list"
             ];
+            
+        }else{
+            $cur_date_time=date('Y-m-d H:i:s');
+            if(count($subscriber)>0 && $subscriber->verification_key==$verification_key && $subscriber->valid_till>$cur_date_time){
+                $subscriber->is_verified=true;
+                $subscriber->verified_at=$cur_date_time;
+                $subscriber->save();
+                $response=[
+                    "status"=>true,
+                    "message"=>"Congratulations, You have been added to the subscribers list"
+                ];
+            }else{
+                $response=[
+                    "status"=>false,
+                    "message"=>"Verification Failed! Please try again!"
+                ];
+            }
+            
         }
-
-        $cur_date_time=date('Y-m-d H:i:s');
-        if(count($subscriber)>0 && $subscriber->verification_key==$verification_key && $subscriber->valid_till>$cur_date_time){
-            $subscriber->is_verified=true;
-            $subscriber->verified_at=$cur_date_time;
-            $subscriber->save();
-            $response=[
-                "status"=>true,
-                "message"=>"Congratulations, You have been added to the subscribers list"
-            ];
-        }
-        $response=[
-            "status"=>false,
-            "message"=>"Verification Failed! Please try again!"
-        ];
-
         return $response;
     }
 
@@ -67,7 +69,7 @@ class NewsletterManager
      */
     public static function sendEmailIfEnabled($subscriber){
         $vars = [
-            'link' => url('/'.$subscriber->email.'/'.$subscriber->verification_key),
+            'link' => url('/email_verification/'.$subscriber->email.'/'.$subscriber->verification_key),
             "app_name"=>config('app.name')
         ];
         if(Settings::get('verify_emails',false)){
