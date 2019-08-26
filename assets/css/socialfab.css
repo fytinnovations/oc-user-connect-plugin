@@ -3,13 +3,7 @@
   color:white;
   
 }
-#uc_social_fab {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 #uc_social_fab .trigger, #uc_social_fab .action {
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);

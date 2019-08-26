@@ -44,10 +44,10 @@ tabs:
                 field: verify_emails
                 condition: checked
         newsletter_styles:
-            label: Disable Newsletter Component Styles
+            label: Newsletter Component Styles
             type: switch
             default: true
-            comment: Disables the default styles applied to the component. Useful when overriding
+            comment: Apply Default Styles to SocialFab . Can be disabled when overriding component
             tab: Newsletter 
         social_fab_primary_color:
             label: Primary Color
@@ -74,11 +74,19 @@ tabs:
             default: support@fytinnovations.com
             comment: Provides a link to the Email page
             tab: SocialFab
-        fab_styles:
-            label: Disable Newsletter Component Styles
-            type: switch
-            comment: Disables the default styles applied to the component. Useful when overriding
+        fab_position:
+            label: Fab Position
+            type: balloon-selector
+            default: right
+            options:
+                left: Left 
+                right: Right
             tab: SocialFab
-            default: false
+        fab_styles:
+            label: Newsletter Component Styles
+            type: switch
+            comment: Apply Default Styles to SocialFab . Can be disabled when overriding component
+            tab: SocialFab
+            default: true
 
 
