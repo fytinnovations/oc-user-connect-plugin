@@ -6,3 +6,21 @@ columns:
     id:
         label: ID
         searchable: true
+    email:
+        label: Email
+        searchable: true
+    is_verified:
+        label: Is Verified
+        type: partial
+        path: ~/plugins/fytinnovations/userconnect/models/subscriber/_is_verified.htm
+        align: center
+    verified_at:
+        label: Verified At
+        type: datetime
+        default: Not Verified Yet
+    created_at:
+        label: Created At
+        type: datetime
+    updated_at:
+        label: Updated At
+        type: datetime

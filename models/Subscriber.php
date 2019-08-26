@@ -48,4 +48,8 @@ class Subscriber extends Model
     {
         return $query->where('is_verified', 1);
     }
+    public function scopeUnVerified($query)
+    {
+        return $query->where('is_verified', 0);
+    }
 }

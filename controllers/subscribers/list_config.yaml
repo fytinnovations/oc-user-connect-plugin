@@ -1,0 +1,13 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: Subscribers
+list: ~/plugins/fytinnovations/userconnect/models/subscriber/columns.yaml
+modelClass: Fytinnovations\UserConnect\Models\Subscriber
+noRecordsMessage: No Records Found 
+recordsPerPage: 10
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: Search..

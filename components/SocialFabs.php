@@ -28,6 +28,5 @@ class SocialFabs extends ComponentBase
         $this->page['fab_fb_page_name']=Settings::get('fb_page_name', "FYTInnovations")??"FYTInnovations";
         $this->page['fab_email']=Settings::get('business_email', "support@fytinnovations.com")??"support@fytinnovations.com";
         $this->page['fab_position']=Settings::get('fab_position', "right")??"right";
-
     }
 }

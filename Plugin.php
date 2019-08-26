@@ -67,9 +67,9 @@ class Plugin extends PluginBase
     public function registerPermissions()
     {
         return [
-            'fytinnovations.userconnect.some_permission' => [
+            'fytinnovations.userconnect.manage_settings' => [
                 'tab' => 'UserConnect',
-                'label' => 'Some permission'
+                'label' => 'Allow the user to change userconnect settings'
             ],
         ];
     }
@@ -89,23 +89,24 @@ class Plugin extends PluginBase
     }
 
 
-    /**
-     * Registers back-end navigation items for this plugin.
-     *
-     * @return array
-     */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'userconnect' => [
                 'label'       => 'UserConnect',
-                'url'         => Backend::url('fytinnovations/userconnect/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['fytinnovations.userconnect.*'],
-                'order'       => 500,
-            ],
+                'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
+                'icon'        => 'icon-pencil',
+                'permissions' => ['fytinnovations.userconnect.manage_settings'],
+                'iconSvg'     => 'plugins/fytinnovations/userconnect/assets/images/userconnect.svg',
+                'sideMenu' => [
+                    'subscribers' => [
+                        'label'       => 'Subscribers',
+                        'icon'        => 'icon-copy',
+                        'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
+                        'permissions' => ['fytinnovations.userconnect.manage_settings'],
+                    ]
+                ]
+            ]
         ];
     }
 }
