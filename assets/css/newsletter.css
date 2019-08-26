@@ -60,11 +60,15 @@
       
       @media only screen and (max-width: 600px) {
         .uc-newsletter-inp {
-          width:70%;
+          width:65%;
         }
         .uc-newsletter-btn
         {
-          width:23%;
+          width:33%;
+        }
+
+        .uc-newsletter{
+          width: 100%;
         }
       }
     #uc-newsletter-error{

@@ -43,4 +43,42 @@ tabs:
                 action: show
                 field: verify_emails
                 condition: checked
+        newsletter_styles:
+            label: Disable Newsletter Component Styles
+            type: switch
+            default: true
+            comment: Disables the default styles applied to the component. Useful when overriding
+            tab: Newsletter 
+        social_fab_primary_color:
+            label: Primary Color
+            type: colorpicker
+            commentAbove: Used for styling the floating button color
+            default: #ff4500
+            span: left
+            tab: SocialFab
+        contact_number:
+            label: Contact Number
+            type: text
+            comment: Provides a link to the whatsapp and call buttons
+            default: 918850505322
+            tab: SocialFab
+        fb_page_name:
+            label: Facebook Page Name
+            type: text
+            default: FYTInnovations
+            comment: Provides a link to the facebook page button
+            tab: SocialFab
+        business_email:
+            label: Business Email
+            type: text
+            default: support@fytinnovations.com
+            comment: Provides a link to the Email page
+            tab: SocialFab
+        fab_styles:
+            label: Disable Newsletter Component Styles
+            type: switch
+            comment: Disables the default styles applied to the component. Useful when overriding
+            tab: SocialFab
+            default: false
+
 

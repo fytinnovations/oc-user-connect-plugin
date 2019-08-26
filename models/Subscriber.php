@@ -40,4 +40,12 @@ class Subscriber extends Model
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
+
+    /**
+     * Scope a query to only include verified subscribers.
+     */
+    public function scopeVerified($query)
+    {
+        return $query->where('is_verified', 1);
+    }
 }

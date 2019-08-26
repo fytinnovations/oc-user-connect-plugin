@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Fytinnovations\UserConnect\Classes\NewsletterManager;
 use Fytinnovations\UserConnect\Models\Settings;
+use Fytinnovations\UserConnect\Models\Subscriber;
 
 
 class Newsletter extends ComponentBase
@@ -21,7 +22,9 @@ class Newsletter extends ComponentBase
     }
 
     public function onRun(){
-        $this->addCss('/plugins/fytinnovations/userconnect/assets/css/newsletter.css');
+        if(!Settings::get('newsletter_styles',true)){
+            $this->addCss('/plugins/fytinnovations/userconnect/assets/css/newsletter.css');
+        }
         $this->page['primary_color']=Settings::get('newsletter_primary_color', "#ff4500")??"#ff4500";
         $this->page['secondary_color']=Settings::get('newsletter_secondary_color', "#ffffff")??"#ffffff";
     }
@@ -29,6 +32,5 @@ class Newsletter extends ComponentBase
         $this->page['subscribe_success']=NewsletterManager::subscribe();
         $this->page['newsletter_success_message']=Settings::get('newsletter_success_message', "Thankyou for subscribing.");
     }
-
 
 }

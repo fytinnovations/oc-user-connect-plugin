@@ -55,6 +55,7 @@ class Plugin extends PluginBase
 
         return [
             'Fytinnovations\UserConnect\Components\Newsletter' => 'ucNewsletter',
+            'Fytinnovations\UserConnect\Components\SocialFabs' => 'ucSocialFabs',
         ];
     }
 
