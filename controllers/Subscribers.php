@@ -22,18 +22,19 @@ class Subscribers extends \Backend\Classes\Controller {
         $this->vars['verified_subscribers']=Subscriber::verified()->count();
         $this->vars['unverified_subscribers']=Subscriber::unverified()->count();
         $weekly_subcribers= DB::table('fytinnovations_userconnect_subscribers')
-                 ->select(DB::raw('date(created_at) as group_date,count(*) as total'))
+                 ->select(DB::raw('UNIX_TIMESTAMP(created_at) as date,count(*) as total'))
                  ->groupBy(DB::raw('date(created_at)'))
                  ->get();
 
         $graph_array=[];
         foreach ($weekly_subcribers as $key => $subcriber) {
-            $array=[$subcriber->group_date,$subcriber->total];
+            $array=[$subcriber->date,$subcriber->total];
             array_push($graph_array,$array);
         }
 
         //Convert the array into a string which can be passed to the view graph
         $this->vars['line_graph']=substr(json_encode($graph_array), 1, -1);
+        //dd($this->vars['line_graph']);
         $this->asExtension('ListController')->index();
     }
 
