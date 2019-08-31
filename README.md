@@ -16,7 +16,7 @@ What things you need to install the software and how to install them
 
 ### Installing
 
-1. Create a folder inside the plugins directory called `/plugins/fytinnovations/userconnect` .
+1. Create a folder inside the plugins directory called `fytinnovations/userconnect` .
 2. Clone or copy the contents of the repository to this folder.
 3. Logout and login to the backend to see the plugin in effect.
 
