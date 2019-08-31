@@ -1,4 +1,4 @@
-# Project Title
+# UserConnect - OctoberCMS
 
 A OctoberCMS plugin which allows you to easily connect with your users with a newsletter and a social fab component.
 
