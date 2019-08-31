@@ -101,7 +101,7 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'subscribers' => [
                         'label'       => 'Subscribers',
-                        'icon'        => 'icon-copy',
+                        'icon'        => 'icon-users',
                         'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
                         'permissions' => ['fytinnovations.userconnect.manage_settings'],
                     ]
