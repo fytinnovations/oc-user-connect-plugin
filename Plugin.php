@@ -104,6 +104,12 @@ class Plugin extends PluginBase
                         'icon'        => 'icon-users',
                         'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
                         'permissions' => ['fytinnovations.userconnect.manage_settings'],
+                    ],
+                    'settings' => [
+                        'label'       => 'Settings',
+                        'icon'        => 'icon-cog',
+                        'url'         => Backend::url('system/settings/update/fytinnovations/userconnect/settings'),
+                        'permissions' => ['fytinnovations.userconnect.manage_settings'],
                     ]
                 ]
             ]
