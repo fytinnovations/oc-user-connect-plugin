@@ -73,7 +73,7 @@ class NewsletterManager
             "app_name"=>config('app.name')
         ];
         if(Settings::get('verify_emails',false)){
-            Mail::send('fytinnovations.userconnect::mail.message', $vars, function($message) use ($subscriber){
+            Mail::send('fytinnovations.userconnect::mail.subscriber_verification', $vars, function($message) use ($subscriber){
                 $message->to($subscriber->email, 'New Subscriber');
                 $message->subject('Newletter Subscription Verification');
             });

@@ -109,4 +109,11 @@ class Plugin extends PluginBase
             ]
         ];
     }
+
+    public function registerMailTemplates()
+    {
+        return [
+            'fytinnovations.userconnect::mail.subscriber_verification',
+        ];
+    }
 }
