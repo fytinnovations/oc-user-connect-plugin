@@ -1,0 +1,19 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    is_verified:
+        label: Verified
+        type: checkbox
+        conditions: is_verified = true
+
+    created_at:
+        label: Subscribed Date
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    verified_at:
+        label: Verified Date
+        type: daterange
+        conditions: verified_at >= ':after' AND verified_at <= ':before'

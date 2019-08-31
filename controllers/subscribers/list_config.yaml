@@ -8,6 +8,7 @@ modelClass: Fytinnovations\UserConnect\Models\Subscriber
 noRecordsMessage: No Records Found 
 recordsPerPage: 10
 showCheckboxes: true
+filter: config_filter.yaml
 toolbar:
     buttons: list_toolbar
     search:
