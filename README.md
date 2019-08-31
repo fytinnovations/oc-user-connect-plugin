@@ -1,6 +1,10 @@
 # UserConnect - OctoberCMS
+<p align="center">
+    <img src="https://github.com/fytinnovations/oc-user-connect/blob/develop/assets/images/userconnect.svg" alt="fytinnovations-userconnect" width="25%" height="25%" />
+</p>
 
 A OctoberCMS plugin which allows you to easily connect with your users with a newsletter and a social fab component.
+
 
 ## Getting Started
 
