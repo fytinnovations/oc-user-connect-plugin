@@ -7,7 +7,10 @@ list: ~/plugins/fytinnovations/userconnect/models/subscriber/columns.yaml
 modelClass: Fytinnovations\UserConnect\Models\Subscriber
 noRecordsMessage: No Records Found 
 recordsPerPage: 10
+showCheckboxes: true
 toolbar:
     buttons: list_toolbar
     search:
         prompt: Search..
+export:
+    useList: true

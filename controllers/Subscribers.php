@@ -6,8 +6,10 @@ use  Fytinnovations\UserConnect\Models\Subscriber;
 use DB;
 class Subscribers extends \Backend\Classes\Controller {
 
-    public $implement = ['Backend.Behaviors.ListController'];
+    public $implement = ['Backend.Behaviors.ListController','Backend.Behaviors.ImportExportController'];
 
+    public $importExportConfig = 'config_import_export.yaml';
+    
     public $listConfig = 'list_config.yaml';
 
     public $guarded= ['modifyForLineGraph'];

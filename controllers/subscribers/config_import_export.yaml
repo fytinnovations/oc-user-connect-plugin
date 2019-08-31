@@ -1,0 +1,7 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+export:
+    title: Export subscribers
+    modelClass: Fytinnovations\UserConnect\Models\SubscriberExport
+    list: $/fytinnovations/userconnect/models/subscriber/columns.yaml
