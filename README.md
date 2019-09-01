@@ -31,7 +31,7 @@ What things you need to install the software and how to install them
 
 ## Deployment
 
-1. [Visit](https://octobercms.com/plugins/fytinnovations/userconnect) the plugin page in OctoberCMS marketplace and click on Add to Project.
+1. [Visit](https://octobercms.com/plugins/fytinnovations-userconnect) the plugin page in OctoberCMS marketplace and click on Add to Project.
 
 
 ## Contributing
@@ -50,7 +50,14 @@ See also the list of [contributors](https://github.com/fytinnovations/oc-user-co
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Credits
+
+Icon Credit
+
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"  title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"             title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></div>
+
 
 ## Donations
 
