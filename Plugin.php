@@ -2,7 +2,7 @@
 
 use Backend;
 use System\Classes\PluginBase;
-
+use Event;
 /**
  * UserConnect Plugin Information File
  */
@@ -42,7 +42,7 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
+        
     }
 
     /**

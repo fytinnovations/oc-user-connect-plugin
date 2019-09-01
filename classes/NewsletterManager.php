@@ -4,6 +4,7 @@ use Input;
 use Fytinnovations\UserConnect\Models\Settings;
 use Fytinnovations\UserConnect\Models\Subscriber;
 use Mail;
+use Event;
 
 class NewsletterManager 
 {
@@ -73,10 +74,13 @@ class NewsletterManager
             "app_name"=>config('app.name')
         ];
         if(Settings::get('verify_emails',false)){
+            Event::fire('fytinnovations.userconnect.beforeVerificationMailSend', [$subscriber]);
             Mail::send('fytinnovations.userconnect::mail.subscriber_verification', $vars, function($message) use ($subscriber){
                 $message->to($subscriber->email, 'New Subscriber');
                 $message->subject('Newletter Subscription Verification');
             });
+            return true;
         }
+        return false;
     }
 }
