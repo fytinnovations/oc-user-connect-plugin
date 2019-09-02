@@ -65,7 +65,7 @@ tabs:
         fb_page_name:
             label: Facebook Page Name
             type: text
-            default: FYTInnovations
+            default: fytinnovationsofficial
             comment: Provides a link to the facebook page button
             tab: SocialFab
         business_email:

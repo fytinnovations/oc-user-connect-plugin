@@ -29,7 +29,6 @@ class Subscribers extends \Backend\Classes\Controller {
                  ->groupBy(DB::raw('date(created_at)'))
                  ->orderBy(DB::raw('date(created_at)'))
                  ->get();
-        //dd($weekly_subcribers);
         $graph_array=[];
         foreach ($weekly_subcribers as $key => $subcriber) {
             $array=[$subcriber->date*1000,$subcriber->total];
@@ -38,7 +37,6 @@ class Subscribers extends \Backend\Classes\Controller {
         
         //Convert the array into a string which can be passed to the view graph
         $this->vars['line_graph']=substr(json_encode($graph_array), 1, -1);
-        //dd($this->vars['line_graph']);
         $this->asExtension('ListController')->index();
     }
 
