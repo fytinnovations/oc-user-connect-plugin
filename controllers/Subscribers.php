@@ -21,22 +21,22 @@ class Subscribers extends \Backend\Classes\Controller {
 
     public function index()
     {
-        $this->vars['verified_subscribers']=Subscriber::verified()->count();
-        $this->vars['unverified_subscribers']=Subscriber::unverified()->count();
-        $weekly_subcribers= DB::table('fytinnovations_userconnect_subscribers')
-                 ->select(DB::raw('UNIX_TIMESTAMP(created_at) as date,count(*) as total'))
-                 ->where('created_at','>',date('Y-m-d', strtotime('-7 days')))
-                 ->groupBy(DB::raw('date(created_at)'))
-                 ->orderBy(DB::raw('date(created_at)'))
-                 ->get();
-        $graph_array=[];
-        foreach ($weekly_subcribers as $key => $subcriber) {
-            $array=[$subcriber->date*1000,$subcriber->total];
-            array_push($graph_array,$array);
+        $this->vars['verified_subscribers'] = Subscriber::verified()->count();
+        $this->vars['unverified_subscribers'] = Subscriber::unverified()->count();
+        $weekly_subcribers = DB::table('fytinnovations_userconnect_subscribers')
+            ->select(DB::raw('UNIX_TIMESTAMP(date(created_at)) as date'))
+            ->where('created_at', '>', date('Y-m-d', strtotime('-7 days')))
+            ->get();
+
+        $grouped_subscribers = $weekly_subcribers->groupBy('date');
+        $graph_array = [];
+        foreach ($grouped_subscribers as $key => $subcriber) {
+            $array = [$key * 1000, count($subcriber)];
+            array_push($graph_array, $array);
         }
-        
+
         //Convert the array into a string which can be passed to the view graph
-        $this->vars['line_graph']=substr(json_encode($graph_array), 1, -1);
+        $this->vars['line_graph'] = substr(json_encode($graph_array), 1, -1);
         $this->asExtension('ListController')->index();
     }
 
