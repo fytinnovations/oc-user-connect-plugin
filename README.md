@@ -44,7 +44,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **[Aniket Magadum](https://github.com/aniket-magadum)**
+* **[4nik3t](https://github.com/aniket-magadum)**
 
 See also the list of [contributors](https://github.com/fytinnovations/oc-user-connect/contributors) who participated in this project.
 
