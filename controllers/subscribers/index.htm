@@ -1,8 +1,5 @@
 <div class="col-md-6 col-sm-12 col-xs-12">
-    <div
-        class="control-chart centered wrap-legend"
-        data-control="chart-pie"
-        data-size="200"
+    <div class="control-chart centered wrap-legend" data-control="chart-pie" data-size="200"
         data-center-text="<?=$verified_subscribers + $unverified_subscribers?>">
         <ul>
             <li>Verified Subscribers<span><?=$verified_subscribers?></span></li>
@@ -11,18 +8,11 @@
     </div>
 </div>
 <div class="col-md-6 col-sm-12 col-xs-12 m-b-md">
-    <div
-        class="control-chart"
-        data-time-mode="weeks"
-        data-control="chart-line"
-        style="min-height:250px"
+    <div class="control-chart" data-time-mode="weeks" data-control="chart-line" style="min-height:250px"
         data-chart-options="xaxis: {mode: 'time'}">
-    <span 
-        data-chart="dataset" 
-        data-set-color="#008dc9"
-        data-set-data="<?=$line_graph?>"
-        data-set-name="Visits">
-    </span>
+        <span data-chart="dataset" data-set-color="#008dc9" data-set-data="<?=$line_graph?>"
+            data-set-name="Weekly subscribers">
+        </span>
     </div>
 </div>
 <?=$this->listRender();?>

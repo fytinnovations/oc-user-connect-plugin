@@ -1,20 +1,24 @@
 <?php
 
 namespace Fytinnovations\UserConnect\Controllers;
+
 use BackendMenu;
 use  Fytinnovations\UserConnect\Models\Subscriber;
 use DB;
-class Subscribers extends \Backend\Classes\Controller {
 
-    public $implement = ['Backend.Behaviors.ListController','Backend.Behaviors.ImportExportController'];
+class Subscribers extends \Backend\Classes\Controller
+{
+
+    public $implement = ['Backend.Behaviors.ListController', 'Backend.Behaviors.ImportExportController'];
 
     public $importExportConfig = 'config_import_export.yaml';
-    
+
     public $listConfig = 'list_config.yaml';
 
-    public $guarded= ['modifyForLineGraph'];
+    public $guarded = ['modifyForLineGraph'];
 
-    public function __construct(){
+    public function __construct()
+    {
         parent::__construct();
         BackendMenu::setContext('Fytinnovations.UserConnect', 'userconnect', 'subscribers');
     }
@@ -23,15 +27,34 @@ class Subscribers extends \Backend\Classes\Controller {
     {
         $this->vars['verified_subscribers'] = Subscriber::verified()->count();
         $this->vars['unverified_subscribers'] = Subscriber::unverified()->count();
-        $weekly_subcribers = DB::table('fytinnovations_userconnect_subscribers')
-            ->select(DB::raw('UNIX_TIMESTAMP(date(created_at)) as date'))
-            ->where('created_at', '>', date('Y-m-d', strtotime('-7 days')))
-            ->get();
 
-        $grouped_subscribers = $weekly_subcribers->groupBy('date');
+        $datesOfOngoingWeek = [];
+
+        for ($i = 0; $i < 7; $i++) {
+            array_push($datesOfOngoingWeek, date('Y-m-d', strtotime("- {$i} day")));
+        }
+
+        $currentWeekSubscribers = Subscriber::whereIn(DB::raw('date(created_at)'), $datesOfOngoingWeek)->get();
+
+        $grouped_subscribers = $currentWeekSubscribers->groupBy(function ($subcriber) {
+            return $subcriber->created_at->format('Y-m-d');
+        });
+
+        foreach ($datesOfOngoingWeek as $date) {
+            if (!isset($grouped_subscribers[$date])) {
+                $grouped_subscribers[strtotime($date)] = collect();
+            } else {
+                $grouped_subscribers[strtotime($date)] = $grouped_subscribers[$date];
+                unset($grouped_subscribers[$date]);
+            }
+        }
+
         $graph_array = [];
-        foreach ($grouped_subscribers as $key => $subcriber) {
-            $array = [$key * 1000, count($subcriber)];
+
+        foreach ($grouped_subscribers as $key => $subscriber) {
+
+            $array = [$key * 1000, count($subscriber)];
+
             array_push($graph_array, $array);
         }
 
@@ -39,7 +62,4 @@ class Subscribers extends \Backend\Classes\Controller {
         $this->vars['line_graph'] = substr(json_encode($graph_array), 1, -1);
         $this->asExtension('ListController')->index();
     }
-
 }
-
-?>
