@@ -1,3 +1,30 @@
-<p>This is the default markup for component SubscriptionForm</p>
+{% set subscriber = __SELF__.subscriber %}
+{% set subscribeButtonText = __SELF__.subscribeButtonText %}
+{% set successMessage = __SELF__.successMessage %}
+{% set failureMessage = __SELF__.failureMessage %}
 
-<small>You can delete this file if you want</small>
+{% if subscriber is null %}
+
+{{ form_ajax('onSubscribe') }}
+<div class="row" id="subscription-box">
+    <div class="col-xs-8 p-a-0">
+        <input type="text" name="email" class="form-control" value="{{ post('email') }}">
+    </div>
+    <div class="col-xs-4 p-a-0">
+        <button type="submit" class="btn btn-primary"> {{ subscribeButtonText }} </button>
+    </div>
+</div>
+
+<div class="bg-danger">
+    {{ failureMessage }}
+</div>
+
+{{ form_close()}}
+
+{% else %}
+
+<div class="bg-success">
+    {{ successMessage }}
+</div>
+
+{% endif %}
