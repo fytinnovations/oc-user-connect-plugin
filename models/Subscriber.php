@@ -123,4 +123,25 @@ class Subscriber extends Model
             mt_rand(0, 0xffff)
         );
     }
+
+    /**
+     * Verifies the subscription of the user using the key.
+     *
+     * @param string $verification_key
+     * @return bool
+     */
+    public function verify(string $verification_key): bool
+    {
+        if ($this->valid_till > date('Y-m-d:H:i:s') && $this->verification_key == $verification_key) {
+
+            $this->verified_at = now();
+            $this->is_verified = true;
+
+            $this->save();
+            
+            return true;
+        }
+
+        return false;
+    }
 }

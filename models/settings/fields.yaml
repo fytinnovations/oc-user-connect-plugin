@@ -2,25 +2,26 @@
 #  Form Field Definitions
 # ===================================
 
-tabs:
-    fields:
-        verify_emails:
-            label: Verify Via Email
-            comment: Validate the correctness of the Email
-            type: switch
-            tab: Newsletter
-            span: left
-        key_expires_in:
-            label: Verification Key Validation Period
-            type: balloon-selector
-            options:
-                1: 1 day
-                2: 2 days
-                3: 5 days
-            tab: Newsletter
-            default: 1
-            span: left
-            trigger:
-                action: show
-                field: verify_emails
-                condition: checked
+fields:
+    verify_emails:
+        label: Verify Via Email
+        comment: Validate the correctness of the Email
+        type: switch
+    key_expires_in:
+        label: Verification Key Validation Period
+        type: number
+        default: 1
+        span: left
+        trigger:
+            action: show
+            field: verify_emails
+            condition: checked
+    verification_success_page:
+        label: Verification Success Page
+        type: dropdown
+        span: left
+        comment: Page to redirect the user when the verification is complete.
+        trigger:
+            action: show
+            field: verify_emails
+            condition: checked
