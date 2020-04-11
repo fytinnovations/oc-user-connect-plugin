@@ -4,11 +4,11 @@
 
 fields:
     verify_emails:
-        label: Verify Via Email
-        comment: Validate the correctness of the Email
+        label: fytinnovations.userconnect::lang.settings.fields.verify_emails.label
+        comment: fytinnovations.userconnect::lang.settings.fields.verify_emails.comment
         type: switch
     key_expires_in:
-        label: Verification Key Validation Period
+        label: fytinnovations.userconnect::lang.settings.fields.key_expires_in.label
         type: number
         default: 1
         span: left
@@ -17,10 +17,10 @@ fields:
             field: verify_emails
             condition: checked
     verification_success_page:
-        label: Verification Success Page
+        label: fytinnovations.userconnect::lang.settings.fields.verification_success_page.label
         type: dropdown
         span: left
-        comment: Page to redirect the user when the verification is complete.
+        comment: fytinnovations.userconnect::lang.settings.fields.verification_success_page.comment
         trigger:
             action: show
             field: verify_emails

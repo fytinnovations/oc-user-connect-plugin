@@ -2,8 +2,10 @@
     <div class="control-chart centered wrap-legend" data-control="chart-pie" data-size="200"
         data-center-text="<?=$verified_subscribers + $unverified_subscribers?>">
         <ul>
-            <li>Verified Subscribers<span><?=$verified_subscribers?></span></li>
-            <li>Unverified Subscribers<span><?=$unverified_subscribers?></span></li>
+            <li><?= e(trans('fytinnovations.userconnect::lang.subscribers.verified')) ?><span><?=$verified_subscribers?></span>
+            </li>
+            <li><?= e(trans('fytinnovations.userconnect::lang.subscribers.unverified')) ?><span><?=$unverified_subscribers?></span>
+            </li>
         </ul>
     </div>
 </div>

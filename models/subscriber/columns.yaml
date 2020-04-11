@@ -4,23 +4,22 @@
 
 columns:
     id:
-        label: ID
-        searchable: true
+        label: fytinnovations.userconnect::lang.subscriber.fields.id.label
     email:
-        label: Email
+        label: fytinnovations.userconnect::lang.subscriber.fields.email.label
         searchable: true
     is_verified:
-        label: Is Verified
+        label: fytinnovations.userconnect::lang.subscriber.fields.is_verified.label
         type: partial
         path: ~/plugins/fytinnovations/userconnect/models/subscriber/_is_verified.htm
         align: center
     verified_at:
-        label: Verified At
+        label: fytinnovations.userconnect::lang.subscriber.fields.verified_at.label
         type: datetime
         default: Not Verified Yet
     created_at:
-        label: Created At
+        label: fytinnovations.userconnect::lang.subscriber.fields.created_at.label
         type: datetime
     updated_at:
-        label: Updated At
+        label: fytinnovations.userconnect::lang.subscriber.fields.updated_at.label
         type: datetime
