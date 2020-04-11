@@ -4,7 +4,7 @@ namespace Fytinnovations\UserConnect\Tests;
 
 use PluginTestCase;
 
-class SubscriptionTest extends PluginTestCase
+class SubscriptionsTest extends PluginTestCase
 {
     public function testsToBeCreated()
     {

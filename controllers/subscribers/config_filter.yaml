@@ -4,16 +4,16 @@
 
 scopes:
     is_verified:
-        label: Verified
+        label: fytinnovations.userconnect::lang.subscribers.filter.verified
         type: checkbox
         conditions: is_verified = true
 
     created_at:
-        label: Subscribed Date
+        label: fytinnovations.userconnect::lang.subscribers.filter.subscribed_between
         type: daterange
         conditions: created_at >= ':after' AND created_at <= ':before'
 
     verified_at:
-        label: Verified Date
+        label: fytinnovations.userconnect::lang.subscribers.filter.verified_between
         type: daterange
         conditions: verified_at >= ':after' AND verified_at <= ':before'

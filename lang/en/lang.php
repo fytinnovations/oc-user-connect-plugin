@@ -11,10 +11,60 @@ return [
     'settings' => [
         'menu_label' => 'Settings',
         'label' => 'User Connect Settings',
-        'description' => 'Manage settings For User Connect'
+        'description' => 'Manage settings For User Connect',
+        'fields' => [
+            'verify_emails' =>
+            [
+                'label' => 'Verify Via Email',
+                'comment' => 'Validate the correctness of the Email'
+            ],
+            'key_expires_in' =>
+            [
+                'label' => 'Key Expires In (Days)',
+            ],
+            'verification_success_page' =>
+            [
+                'label' => 'Verification Success Page',
+                'comment' => 'The page to redirect the user when the verification is successful'
+            ],
+        ]
+    ],
+    'general' => [
+        'fields' => []
     ],
     'subscribers' => [
-        'menu_label' => 'Subscribers'
+        'list_title' => 'Subscribers',
+        'menu_label' => 'Subscribers',
+        'verified' => 'Verified Subscribers',
+        'unverified' => 'Unverified Subscribers',
+        'export' => 'Export Subscribers',
+        'filter' => [
+            'verified' => 'Verified',
+            'subscribed_between' => 'Subscribed Between',
+            'verified_between' => 'Verified Between'
+        ]
+    ],
+    'subscriber' => [
+        'fields' => [
+            'id' => [
+                'label' => 'ID'
+            ],
+            'email' => [
+                'label' => 'Email'
+            ],
+            'is_verified' => [
+                'label' => 'Is Verified'
+            ],
+            'verified_at' => [
+                'label' => 'Verified At'
+            ],
+            'created_at' => [
+                'label' => 'Created At'
+            ],
+            'updated_at' => [
+                'label' => 'Updated At'
+            ],
+        ]
     ],
     'components' => [
         'subscriptionform' => [

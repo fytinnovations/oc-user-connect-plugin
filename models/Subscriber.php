@@ -3,7 +3,6 @@
 namespace Fytinnovations\UserConnect\Models;
 
 use Model;
-use Event;
 use Mail;
 
 /**
@@ -58,11 +57,6 @@ class Subscriber extends Model
     public function scopeUnVerified($query)
     {
         return $query->where('is_verified', 0);
-    }
-    public function scopeWeeklySubscribers($query)
-    {
-        $start_date = date("Y-m-d", strtotime("-1 week +1 day"));
-        return $query->where('created_at', '>', $start_date)->groupBy(DB::raw('date(created_at)'))->count();
     }
 
     /**
@@ -138,7 +132,7 @@ class Subscriber extends Model
             $this->is_verified = true;
 
             $this->save();
-            
+
             return true;
         }
 
