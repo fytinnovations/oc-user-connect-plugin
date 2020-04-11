@@ -10,7 +10,7 @@
          stopOnFailure="false"
 >
     <testsuites>
-        <testsuite name="Plugin Unit Test Suite">
+        <testsuite name="User Connect Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

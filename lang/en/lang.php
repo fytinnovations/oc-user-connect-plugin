@@ -10,7 +10,7 @@ return [
     ],
     'settings' => [
         'menu_label' => 'Settings',
-        'label' => 'UserConnect Settings',
+        'label' => 'User Connect Settings',
         'description' => 'Manage settings For User Connect'
     ],
     'subscribers' => [
@@ -34,4 +34,10 @@ return [
             ]
         ],
     ],
+    'mail' => [
+        'verify_subscriber' => [
+            'subject' => 'Please confirm your subscription.'
+        ],
+        'user_verified_successfully' => 'Thankyou, Your email has been verified.'
+    ]
 ];
