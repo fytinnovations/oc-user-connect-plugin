@@ -12,6 +12,10 @@ use Fytinnovations\Userconnect\Components\SubscriptionForm;
  */
 class Plugin extends PluginBase
 {
+    public $require = [
+        'Rainlab.Translate'
+    ];
+
     /**
      * Returns information about this plugin.
      *
