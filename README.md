@@ -1,6 +1,6 @@
 # User Connect - OctoberCMS Email Subscription Management
 
-A OctoberCMS plugin which allows you to connect to your users through email subscription lists.
+Creating and manage email subscription lists with ease.
 
 ## Getting Started
 
