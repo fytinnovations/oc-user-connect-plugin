@@ -1,8 +1,12 @@
-<?php namespace Fytinnovations\UserConnect;
+<?php
+
+namespace Fytinnovations\UserConnect;
 
 use Backend;
 use System\Classes\PluginBase;
 use Event;
+use Fytinnovations\Userconnect\Components\SubscriptionForm;
+
 /**
  * UserConnect Plugin Information File
  */
@@ -16,12 +20,9 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'UserConnect',
-            'description' => 'Connect with your user easily with easy to 
-                              enable features which includes newsletter
-                              subscription and social floating action buttons',
+            'name'        => 'fytinnovations.userconnect::lang.plugin.name',
+            'description' => 'fytinnovations.userconnect::lang.plugin.description',
             'author'      => 'Fytinnovations',
-            'icon'        => 'icon-leaf'
         ];
     }
 
@@ -32,7 +33,6 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-
     }
 
     /**
@@ -42,7 +42,6 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-        
     }
 
     /**
@@ -52,10 +51,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-
         return [
-            'Fytinnovations\UserConnect\Components\Newsletter' => 'ucNewsletter',
-            'Fytinnovations\UserConnect\Components\SocialFabs' => 'ucSocialFabs',
+            SubscriptionForm::class => 'subscriptionForm'
         ];
     }
 
@@ -68,8 +65,8 @@ class Plugin extends PluginBase
     {
         return [
             'fytinnovations.userconnect.manage_settings' => [
-                'tab' => 'UserConnect',
-                'label' => 'Allow the user to change userconnect settings'
+                'tab' => 'fytinnovations.userconnect::lang.plugin.name',
+                'label' => 'fytinnovations.userconnect::lang.permissions.manage_settings'
             ],
         ];
     }
@@ -78,12 +75,12 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'UserConnect Settings',
-                'description' => 'Manage newsletters and social icons.',
+                'label'       => 'fytinnovations.userconnect::lang.settings.label',
+                'description' => 'fytinnovations.userconnect::lang.settings.description',
                 'icon'        => 'icon-cog',
                 'class'       => 'Fytinnovations\UserConnect\Models\Settings',
                 'order'       => 500,
-                'keywords'    => 'userconnect newsletter'
+                'keywords'    => 'userconnect subscriptions'
             ]
         ];
     }
@@ -93,20 +90,19 @@ class Plugin extends PluginBase
     {
         return [
             'userconnect' => [
-                'label'       => 'UserConnect',
+                'label'       => 'fytinnovations.userconnect::lang.plugin.name',
                 'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
-                'icon'        => 'icon-pencil',
                 'permissions' => ['fytinnovations.userconnect.manage_settings'],
                 'iconSvg'     => 'plugins/fytinnovations/userconnect/assets/images/userconnect.svg',
                 'sideMenu' => [
                     'subscribers' => [
-                        'label'       => 'Subscribers',
+                        'label'       => 'fytinnovations.userconnect::lang.subscribers.menu_label',
                         'icon'        => 'icon-users',
                         'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
                         'permissions' => ['fytinnovations.userconnect.manage_settings'],
                     ],
                     'settings' => [
-                        'label'       => 'Settings',
+                        'label'       => 'fytinnovations.userconnect::lang.settings.menu_label',
                         'icon'        => 'icon-cog',
                         'url'         => Backend::url('system/settings/update/fytinnovations/userconnect/settings'),
                         'permissions' => ['fytinnovations.userconnect.manage_settings'],
@@ -119,7 +115,7 @@ class Plugin extends PluginBase
     public function registerMailTemplates()
     {
         return [
-            'fytinnovations.userconnect::mail.subscriber_verification',
+            'fytinnovations.userconnect::mail.verify_subscriber',
         ];
     }
 }
