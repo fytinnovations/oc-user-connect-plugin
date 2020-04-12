@@ -4,5 +4,7 @@
 
 columns:
     id:
-        label: ID
+        label: fytinnovations.userconnect::lang.category.fields.id.label
         searchable: true
+    name:
+        label: fytinnovations.userconnect::lang.category.fields.name.label

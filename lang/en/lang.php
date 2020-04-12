@@ -94,6 +94,17 @@ return [
         'update_title' => 'Edit Category',
         'preview_title' => 'Preview Category',
         'list_title' => 'Manage Categories',
+        'fields' => [
+            'id' => [
+                'label' => 'ID',
+            ],
+            'name' => [
+                'label' => 'Name',
+            ],
+            'description' => [
+                'label' => 'Description',
+            ],
+        ]
     ],
     'categories' => [
         'delete_selected_confirm' => 'Delete the selected Categories?',
