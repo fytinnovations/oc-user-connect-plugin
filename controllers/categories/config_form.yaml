@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: fytinnovations.userconnect::lang.category.label
+
+# Model Form Field configuration
+form: $/fytinnovations/userconnect/models/category/fields.yaml
+
+# Model Class name
+modelClass: Fytinnovations\UserConnect\Models\Category
+
+# Default redirect location
+defaultRedirect: fytinnovations/userconnect/categories
+
+# Create page
+create:
+    title: fytinnovations.userconnect::lang.category.create_title
+    redirect: fytinnovations/userconnect/categories/update/:id
+    redirectClose: fytinnovations/userconnect/categories
+
+# Update page
+update:
+    title: fytinnovations.userconnect::lang.category.update_title
+    redirect: fytinnovations/userconnect/categories
+    redirectClose: fytinnovations/userconnect/categories
+
+# Preview page
+preview:
+    title: fytinnovations.userconnect::lang.category.preview_title

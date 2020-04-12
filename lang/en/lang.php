@@ -3,34 +3,31 @@
 return [
     'plugin' => [
         'name' => 'User Connect',
-        'description' => 'Creating and manage email subscription lists with ease.'
+        'description' => 'Creating and manage email subscription lists with ease.',
     ],
     'permissions' => [
-        'manage_settings' => 'Manage User Connect Settings'
+        'manage_settings' => 'Manage User Connect Settings',
     ],
     'settings' => [
         'menu_label' => 'Settings',
-        'label' => 'User Connect Settings',
+        'label' => 'User Connect',
         'description' => 'Manage settings For User Connect',
         'fields' => [
-            'verify_emails' =>
-            [
+            'verify_emails' => [
                 'label' => 'Verify Via Email',
-                'comment' => 'Validate the correctness of the Email'
+                'comment' => 'Validate the correctness of the Email',
             ],
-            'key_expires_in' =>
-            [
+            'key_expires_in' => [
                 'label' => 'Key Expires In (Days)',
             ],
-            'verification_success_page' =>
-            [
+            'verification_success_page' => [
                 'label' => 'Verification Success Page',
-                'comment' => 'The page to redirect the user when the verification is successful'
+                'comment' => 'The page to redirect the user when the verification is successful',
             ],
-        ]
+        ],
     ],
     'general' => [
-        'fields' => []
+        'fields' => [],
     ],
     'subscribers' => [
         'list_title' => 'Subscribers',
@@ -41,30 +38,30 @@ return [
         'filter' => [
             'verified' => 'Verified',
             'subscribed_between' => 'Subscribed Between',
-            'verified_between' => 'Verified Between'
-        ]
+            'verified_between' => 'Verified Between',
+        ],
     ],
     'subscriber' => [
         'fields' => [
             'id' => [
-                'label' => 'ID'
+                'label' => 'ID',
             ],
             'email' => [
-                'label' => 'Email'
+                'label' => 'Email',
             ],
             'is_verified' => [
-                'label' => 'Is Verified'
+                'label' => 'Is Verified',
             ],
             'verified_at' => [
-                'label' => 'Verified At'
+                'label' => 'Verified At',
             ],
             'created_at' => [
-                'label' => 'Created At'
+                'label' => 'Created At',
             ],
             'updated_at' => [
-                'label' => 'Updated At'
+                'label' => 'Updated At',
             ],
-        ]
+        ],
     ],
     'components' => [
         'subscriptionform' => [
@@ -74,20 +71,36 @@ return [
                 'subscribeButtonText' => [
                     'title' => 'Subscribe button text',
                     'description' => 'The text to be displayed on the subscribe button.',
-                    'default' => 'Subscribe'
+                    'default' => 'Subscribe',
                 ],
                 'successMessage' => [
                     'title' => 'Success Message',
                     'description' => 'Text to be displayed when the subscription is sucessful.',
-                    'default' => 'Thankyou for subscribing.'
-                ]
-            ]
+                    'default' => 'Thankyou for subscribing.',
+                ],
+            ],
         ],
     ],
     'mail' => [
         'verify_subscriber' => [
-            'subject' => 'Please confirm your subscription.'
+            'subject' => 'Please confirm your subscription.',
         ],
-        'user_verified_successfully' => 'Thankyou, Your email has been verified.'
-    ]
+        'user_verified_successfully' => 'Thankyou, Your email has been verified.',
+    ],
+    'category' => [
+        'new' => 'New Category',
+        'label' => 'Category',
+        'create_title' => 'Create Category',
+        'update_title' => 'Edit Category',
+        'preview_title' => 'Preview Category',
+        'list_title' => 'Manage Categories',
+    ],
+    'categories' => [
+        'delete_selected_confirm' => 'Delete the selected Categories?',
+        'menu_label' => 'Categories',
+        'return_to_list' => 'Return to Categories',
+        'delete_confirm' => 'Do you really want to delete this Category?',
+        'delete_selected_success' => 'Successfully deleted the selected Categories.',
+        'delete_selected_empty' => 'There are no selected Categories to delete.',
+    ],
 ];

@@ -103,7 +103,11 @@ class Plugin extends PluginBase
                         'label'       => 'fytinnovations.userconnect::lang.subscribers.menu_label',
                         'icon'        => 'icon-users',
                         'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
-                        'permissions' => ['fytinnovations.userconnect.manage_settings'],
+                    ],
+                    'categories' => [
+                        'label'       => 'fytinnovations.userconnect::lang.categories.menu_label',
+                        'icon'        => 'icon-list',
+                        'url'         => Backend::url('fytinnovations/userconnect/categories'),
                     ],
                     'settings' => [
                         'label'       => 'fytinnovations.userconnect::lang.settings.menu_label',
