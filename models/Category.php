@@ -1,4 +1,6 @@
-<?php namespace Fytinnovations\UserConnect\Models;
+<?php
+
+namespace Fytinnovations\UserConnect\Models;
 
 use Model;
 
@@ -27,7 +29,10 @@ class Category extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'name' => 'required | max:255',
+        'description' => 'nullable'
+    ];
 
     /**
      * @var array Attributes to be cast to native types

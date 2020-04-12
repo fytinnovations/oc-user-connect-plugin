@@ -3,6 +3,9 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    name:
+        label: fytinnovations.userconnect::lang.category.fields.name.label
+        type: text
+    description:
+        label: fytinnovations.userconnect::lang.category.fields.description.label
+        type: textarea
