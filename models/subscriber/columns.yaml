@@ -13,10 +13,15 @@ columns:
         type: partial
         path: ~/plugins/fytinnovations/userconnect/models/subscriber/_is_verified.htm
         align: center
+    category:
+        label: fytinnovations.userconnect::lang.category.label
+        relation: category
+        default: fytinnovations.userconnect::lang.category.no_category_selected
+        sortable: false
     verified_at:
         label: fytinnovations.userconnect::lang.subscriber.fields.verified_at.label
         type: datetime
-        default: Not Verified Yet
+        default: fytinnovations.userconnect::lang.subscriber.not_verified_yet
     created_at:
         label: fytinnovations.userconnect::lang.subscriber.fields.created_at.label
         type: datetime
