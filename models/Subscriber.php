@@ -37,7 +37,9 @@ class Subscriber extends Model
      */
     public $hasOne = [];
     public $hasMany = [];
-    public $belongsTo = [];
+    public $belongsTo = [
+        'category' => Subscriber::class
+    ];
     public $belongsToMany = [];
     public $morphTo = [];
     public $morphOne = [];

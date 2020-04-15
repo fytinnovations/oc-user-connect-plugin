@@ -42,6 +42,7 @@ return [
         ],
     ],
     'subscriber' => [
+        'not_verified_yet' => 'Not Verified Yet',
         'fields' => [
             'id' => [
                 'label' => 'ID',
@@ -94,6 +95,7 @@ return [
         'update_title' => 'Edit Category',
         'preview_title' => 'Preview Category',
         'list_title' => 'Manage Categories',
+        'no_category_selected' => 'No Category Selected',
         'fields' => [
             'id' => [
                 'label' => 'ID',

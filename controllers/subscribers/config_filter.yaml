@@ -8,6 +8,12 @@ scopes:
         type: checkbox
         conditions: is_verified = true
 
+    category:
+        label: fytinnovations.userconnect::lang.category.label
+        modelClass: Fytinnovations\UserConnect\Models\Category
+        conditions: category_id in (:filtered)
+        nameFrom: name
+
     created_at:
         label: fytinnovations.userconnect::lang.subscribers.filter.subscribed_between
         type: daterange
