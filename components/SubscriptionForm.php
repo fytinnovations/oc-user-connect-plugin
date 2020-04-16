@@ -3,6 +3,7 @@
 namespace Fytinnovations\Userconnect\Components;
 
 use Cms\Classes\ComponentBase;
+use Fytinnovations\UserConnect\Models\Category;
 use Fytinnovations\UserConnect\Models\Subscriber;
 use Lang;
 use October\Rain\Database\ModelException;
@@ -59,7 +60,23 @@ class SubscriptionForm extends ComponentBase
                 'default' => Lang::get('fytinnovations.userconnect::lang.components.subscriptionform.properties.successMessage.default'),
                 'type' => 'string',
             ],
+            'category' => [
+                'title' => 'fytinnovations.userconnect::lang.components.subscriptionform.properties.category.title',
+                'description' => 'fytinnovations.userconnect::lang.components.subscriptionform.properties.category.description',
+                'type' => 'dropdown',
+                'required' => true
+            ]
         ];
+    }
+
+    /**
+     * Get options for the category dropdown inside the component
+     *
+     * @return array
+     */
+    public function getCategoryOptions()
+    {
+        return Category::lists('name', 'id');
     }
 
     /**
@@ -80,12 +97,12 @@ class SubscriptionForm extends ComponentBase
     public function onSubscribe(): array
     {
         try {
-            $this->subscriber = Subscriber::create(post());
+            $this->subscriber = Subscriber::firstOrCreate(['email' => post('email')]);
         } catch (\Throwable $th) {
             if ($th instanceof ModelException) {
                 $this->failureMessage = $th->getMessage();
             } else {
-                $this->failureMessage = "Something went wrong.";
+                $this->failureMessage = $th->getMessage();
             }
         }
 
