@@ -8,3 +8,4 @@
   - update_subscribers_table_for_major_update.php
   - create_categories_table.php
   - update_subscribers_table_add_category_id_column.php
+  - create_subscriptions_table.php

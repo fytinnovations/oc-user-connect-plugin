@@ -79,6 +79,10 @@ return [
                     'description' => 'Text to be displayed when the subscription is sucessful.',
                     'default' => 'Thankyou for subscribing.',
                 ],
+                'category' => [
+                    'title' => 'Category',
+                    'description' => 'Category to which the subscriber will be attached.',
+                ],
             ],
         ],
     ],
