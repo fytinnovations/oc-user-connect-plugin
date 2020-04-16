@@ -1,0 +1,20 @@
+<div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="control-chart centered wrap-legend" data-control="chart-pie" data-size="200"
+        data-center-text="<?=$verified_subscriptions + $unverified_subscriptions?>">
+        <ul>
+            <li><?= e(trans('fytinnovations.userconnect::lang.subscriptions.verified')) ?><span><?=$verified_subscriptions?></span>
+            </li>
+            <li><?= e(trans('fytinnovations.userconnect::lang.subscriptions.unverified')) ?><span><?=$unverified_subscriptions?></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12 m-b-md">
+    <div class="control-chart" data-time-mode="weeks" data-control="chart-line" style="min-height:250px"
+        data-chart-options="xaxis: {mode: 'time'}">
+        <span data-chart="dataset" data-set-color="#008dc9" data-set-data="<?=$line_graph?>"
+            data-set-name="Weekly Subscriptions">
+        </span>
+    </div>
+</div>
+<?=$this->listRender();?>

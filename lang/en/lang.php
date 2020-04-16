@@ -110,7 +110,7 @@ return [
             'description' => [
                 'label' => 'Description',
             ],
-        ]
+        ],
     ],
     'categories' => [
         'delete_selected_confirm' => 'Delete the selected Categories?',
@@ -119,5 +119,48 @@ return [
         'delete_confirm' => 'Do you really want to delete this Category?',
         'delete_selected_success' => 'Successfully deleted the selected Categories.',
         'delete_selected_empty' => 'There are no selected Categories to delete.',
+    ],
+    'subscription' => [
+        'not_verified_yet' => 'Not Verified Yet',
+        'new' => 'New Subscription',
+        'label' => 'Subscription',
+        'create_title' => 'Create Subscription',
+        'update_title' => 'Edit Subscription',
+        'preview_title' => 'Preview Subscription',
+        'list_title' => 'Manage Subscriptions',
+        'fields' => [
+            'id' => [
+                'label' => 'ID',
+            ],
+            'email' => [
+                'label' => 'Email',
+            ],
+            'category' => [
+                'label' => 'Category',
+            ],
+            'is_verified' => [
+                'label' => 'Is Verified',
+            ],
+            'verified_at' => [
+                'label' => 'Verified At',
+            ],
+            'created_at' => [
+                'label' => 'Created At',
+            ],
+            'updated_at' => [
+                'label' => 'Updated At',
+            ],
+        ],
+    ],
+    'subscriptions' => [
+        'delete_selected_confirm' => 'Delete the selected Subscriptions?',
+        'verified' => 'Verified Subscriptions',
+        'unverified' => 'Unverified Subscriptions',
+        'export' => 'Export Subscriptions',
+        'menu_label' => 'Subscriptions',
+        'return_to_list' => 'Return to Subscriptions',
+        'delete_confirm' => 'Do you really want to delete this Subscription?',
+        'delete_selected_success' => 'Successfully deleted the selected Subscriptions.',
+        'delete_selected_empty' => 'There are no selected Subscriptions to delete.',
     ],
 ];

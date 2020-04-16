@@ -68,7 +68,9 @@ class Category extends Model
     public $hasOne = [];
     public $hasMany = [];
     public $belongsTo = [];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        'subscribers' => [Subscriber::class, 'table' => 'fytinnovations_userconnect_subscriptions', 'timestamps' => true]
+    ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];

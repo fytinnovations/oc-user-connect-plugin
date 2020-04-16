@@ -37,6 +37,11 @@ class SubscriptionForm extends ComponentBase
      */
     public string $failureMessage;
 
+    /**
+     * Holds the category to which the user will be subscribed to.
+     */
+    public Category $category;
+
     public function componentDetails()
     {
         return [
@@ -87,6 +92,7 @@ class SubscriptionForm extends ComponentBase
     {
         $this->subscribeButtonText = $this->property('subscribeButtonText');
         $this->successMessage = $this->property('successMessage');
+        $this->category = Category::find($this->property('category'));
     }
 
     /**
@@ -96,15 +102,16 @@ class SubscriptionForm extends ComponentBase
      */
     public function onSubscribe(): array
     {
-        try {
-            $this->subscriber = Subscriber::firstOrCreate(['email' => post('email')]);
-        } catch (\Throwable $th) {
-            if ($th instanceof ModelException) {
-                $this->failureMessage = $th->getMessage();
-            } else {
-                $this->failureMessage = $th->getMessage();
-            }
-        }
+        // try {
+        $this->subscriber = Subscriber::firstOrCreate(['email' => post('email')]);
+        $this->category->subscribers()->attach($this->subscriber);
+        // } catch (\Throwable $th) {
+        //     if ($th instanceof ModelException) {
+        //         $this->failureMessage = $th->getMessage();
+        //     } else {
+        //         $this->failureMessage = $th->getMessage();
+        //     }
+        // }
 
         return ['#subscription-box' => $this->renderPartial('@default')];
     }

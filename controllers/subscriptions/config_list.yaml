@@ -2,12 +2,13 @@
 #  List Behavior Config
 # ===================================
 
-title: fytinnovations.userconnect::lang.subscribers.list_title
-list: ~/plugins/fytinnovations/userconnect/models/subscriber/columns.yaml
-modelClass: Fytinnovations\UserConnect\Models\Subscriber
+title: fytinnovations.userconnect::lang.subscription.list_title
+list: ~/plugins/fytinnovations/userconnect/models/subscription/columns.yaml
+modelClass: Fytinnovations\UserConnect\Models\Subscription
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage: 10
 showCheckboxes: true
+filter: config_filter.yaml
 toolbar:
     buttons: list_toolbar
     search:
