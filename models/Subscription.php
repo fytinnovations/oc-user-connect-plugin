@@ -4,7 +4,7 @@ namespace Fytinnovations\Userconnect\Models;
 
 use Fytinnovations\UserConnect\Models\Subscriber;
 use Model;
-
+use Mail;
 /**
  * Subscription Model
  */

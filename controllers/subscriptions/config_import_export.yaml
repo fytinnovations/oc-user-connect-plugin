@@ -2,7 +2,7 @@
 #  Import/Export Behavior Config
 # ===================================
 export:
-    title: fytinnovations.userconnect::lang.subscribers.export
+    title: fytinnovations.userconnect::lang.subscriptions.export
 
-    modelClass: Fytinnovations\UserConnect\Models\SubscriberExport
-    list: $/fytinnovations/userconnect/models/subscriber/columns.yaml
+    modelClass: Fytinnovations\UserConnect\Models\SubscriptionExport
+    list: $/fytinnovations/userconnect/models/subscription/columns.yaml
