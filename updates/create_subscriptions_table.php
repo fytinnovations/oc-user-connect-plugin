@@ -15,10 +15,10 @@ class CreateSubscriptionsTable extends Migration
             $table->increments('id');
             $table->integer('subscriber_id')->unsigned();
             $table->integer('category_id')->unsigned();
-            $table->string('verification_key');
+            $table->string('verification_key')->nullable()->change();
             $table->boolean('is_verified')->default(0);
             $table->datetime('verified_at')->nullable();
-            $table->datetime('valid_till');
+            $table->datetime('valid_till')->nullable()->change();
             $table->timestamps();
         });
 

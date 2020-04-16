@@ -40,104 +40,12 @@ class Subscriber extends Model
     public $belongsTo = [
         'category' => Subscriber::class
     ];
-    public $belongsToMany = [];
+    public $belongsToMany = [
+        'categories' => [Subscriber::class, 'table' => 'fytinnovations_userconnect_subscriptions', 'timestamps' => true]
+    ];
     public $morphTo = [];
     public $morphOne = [];
     public $morphMany = [];
     public $attachOne = [];
     public $attachMany = [];
-
-    public $bodyClass = 'compact-container';
-
-    /**
-     * Scope a query to only include verified subscribers.
-     */
-    public function scopeVerified($query)
-    {
-        return $query->where('is_verified', 1);
-    }
-    public function scopeUnVerified($query)
-    {
-        return $query->where('is_verified', 0);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     */
-    public function beforeCreate()
-    {
-        $settings = Settings::instance();
-
-        $isVerificationEnabled = $settings->verify_emails;
-
-        if ($isVerificationEnabled) {
-            $keyExpiresAfter = $settings->key_expires_in;
-
-            $this->verification_key = static::generateVerificationKey();
-            $this->valid_till = date('Y-m-d H:i:s', strtotime('+' . $keyExpiresAfter . ' day', time()));
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     */
-    public function afterCreate()
-    {
-        $isVerificationEnabled = Settings::get('verify_emails');
-
-        if ($isVerificationEnabled) {
-
-            $vars = [
-                'link' => url('/email_verification/' . $this->email . '/' . $this->verification_key),
-                "app_name" => config('app.name')
-            ];
-
-            Mail::send('fytinnovations.userconnect::mail.verify_subscriber', $vars, function ($message) {
-                $message->to($this->email);
-            });
-        }
-    }
-
-    /**
-     * Generates a unique uuid for verification of the subscriber
-     *
-     * @return string
-     */
-    protected static function generateVerificationKey()
-    {
-        return sprintf(
-            '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
-            mt_rand(0, 0xffff),
-            mt_rand(0, 0xffff),
-            mt_rand(0, 0xffff),
-            mt_rand(0, 0x0fff) | 0x4000,
-            mt_rand(0, 0x3fff) | 0x8000,
-            mt_rand(0, 0xffff),
-            mt_rand(0, 0xffff),
-            mt_rand(0, 0xffff)
-        );
-    }
-
-    /**
-     * Verifies the subscription of the user using the key.
-     *
-     * @param string $verification_key
-     * @return bool
-     */
-    public function verify(string $verification_key): bool
-    {
-        if ($this->valid_till > date('Y-m-d:H:i:s') && $this->verification_key == $verification_key) {
-
-            $this->verified_at = now();
-            $this->is_verified = true;
-
-            $this->save();
-
-            return true;
-        }
-
-        return false;
-    }
 }

@@ -99,6 +99,11 @@ class Plugin extends PluginBase
                 'permissions' => ['fytinnovations.userconnect.manage_settings'],
                 'iconSvg'     => 'plugins/fytinnovations/userconnect/assets/images/userconnect.svg',
                 'sideMenu' => [
+                    'subscriptions' => [
+                        'label'       => 'fytinnovations.userconnect::lang.subscriptions.menu_label',
+                        'icon'        => 'icon-volume-up',
+                        'url'         => Backend::url('fytinnovations/userconnect/subscriptions'),
+                    ],
                     'subscribers' => [
                         'label'       => 'fytinnovations.userconnect::lang.subscribers.menu_label',
                         'icon'        => 'icon-users',
