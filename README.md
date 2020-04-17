@@ -25,6 +25,76 @@ What things you need to install the software and how to install them
 
 1. [Visit](https://octobercms.com/plugins/fytinnovations-userconnect) the plugin page in OctoberCMS marketplace and click on Add to Project.
 
+## Usage
+
+### SubscriptionForm component
+
+You can embed the subscription form on any page which allows user to subscribe to your website.
+
+Sample Markup
+
+```ini
+title = "Demonstration"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[subscriptionForm]
+subscribeButtonText = "Subscribe now"
+successMessage = "Thankyou for subscribing we'll contact you soon"
+category = 2
+==
+<div class="jumbotron">
+    <div class="container">
+        {% content "welcome.htm" %}
+    </div>
+</div>
+
+```
+
+#### Component Properties
+
+| Value               | Description                                                                              | Default                                           | Required |
+|---------------------|------------------------------------------------------------------------------------------|---------------------------------------------------|----------|
+| subscribeButtonText | The text which should be displayed on the subscribe button.                              | Subscribe Now                                     | No       |
+| successMessage      | The message to be displayed when the user successfully submits the  subscription request | Thankyou for subscribing we'll  contact you soon. | No       |
+| category            | The category the subscription will be submitted to.                                      | Uncategorized (1)                                 | Yes      |
+
+### Configuration Options
+
+#### Verify Via Email
+
+Enable this option if you would like to verify subscriptions using emails.
+
+#### Key Expires in (Days)
+
+Enter the number of days after which the key will be expired. Available only when Verify via Email is enabled.
+
+#### Verification Success Page
+
+The page to redirect the user when the subscription is successful. Once the subscription is verified there is a message embedded automatically in the session you can use the flash twig component on the page to output the message.
+
+Example
+
+```ini
+title = "Account"
+url = "/account/:code?"
+layout = default
+
+[account]
+redirect = "home"
+paramCode = "code"
+==
+
+<div class="container m-a">
+    {% flash success %}
+    <div class="alert alert-success">{{ message }}</div>
+    {% endflash %}
+    {% component 'account' %}
+</div>
+
+```
+
 ## Running the tests
 
 1. Go the plugin's base directory(i.e plugins/fytinnovations/userconnect) and run `../../../vendor/bin/phpunit` to run a series of test cases.
