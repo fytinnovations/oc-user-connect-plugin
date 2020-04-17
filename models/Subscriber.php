@@ -19,7 +19,6 @@ class Subscriber extends Model
 
     public $rules = [
         'email'    => 'required|between:6,255|email|unique:fytinnovations_userconnect_subscribers',
-        'verification_key' => 'nullable|unique:fytinnovations_userconnect_subscribers',
     ];
 
     /**
@@ -30,9 +29,9 @@ class Subscriber extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = ['email', 'verification_key', 'is_verified'];
+    protected $fillable = ['email',];
 
-    protected $dates = ['verified_at'];
+    protected $dates = [];
     /**
      * @var array Relations
      */
