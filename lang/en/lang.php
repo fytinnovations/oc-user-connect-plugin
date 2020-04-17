@@ -42,19 +42,12 @@ return [
         ],
     ],
     'subscriber' => [
-        'not_verified_yet' => 'Not Verified Yet',
         'fields' => [
             'id' => [
                 'label' => 'ID',
             ],
             'email' => [
                 'label' => 'Email',
-            ],
-            'is_verified' => [
-                'label' => 'Is Verified',
-            ],
-            'verified_at' => [
-                'label' => 'Verified At',
             ],
             'created_at' => [
                 'label' => 'Created At',
