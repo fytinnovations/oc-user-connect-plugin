@@ -95,7 +95,7 @@ class Plugin extends PluginBase
         return [
             'userconnect' => [
                 'label'       => 'fytinnovations.userconnect::lang.plugin.name',
-                'url'         => Backend::url('fytinnovations/userconnect/subscribers'),
+                'url'         => Backend::url('fytinnovations/userconnect/subscriptions'),
                 'permissions' => ['fytinnovations.userconnect.manage_settings'],
                 'iconSvg'     => 'plugins/fytinnovations/userconnect/assets/images/userconnect.svg',
                 'sideMenu' => [
