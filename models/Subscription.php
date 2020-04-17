@@ -5,6 +5,7 @@ namespace Fytinnovations\Userconnect\Models;
 use Fytinnovations\UserConnect\Models\Subscriber;
 use Model;
 use Mail;
+
 /**
  * Subscription Model
  */
@@ -25,7 +26,7 @@ class Subscription extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['subscriber_id', 'category_id'];
 
     /**
      * @var array Validation rules for attributes
@@ -118,12 +119,12 @@ class Subscription extends Model
         if ($isVerificationEnabled) {
 
             $vars = [
-                'link' => url('/email_verification/' . $this->email . '/' . $this->verification_key),
+                'link' => url('/email_verification/' . $this->subscriber->email . '/' . $this->verification_key),
                 "app_name" => config('app.name')
             ];
 
             Mail::send('fytinnovations.userconnect::mail.verify_subscriber', $vars, function ($message) {
-                $message->to($this->email);
+                $message->to($this->subscriber->email);
             });
         }
     }

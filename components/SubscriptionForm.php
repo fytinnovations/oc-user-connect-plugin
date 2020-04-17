@@ -3,8 +3,7 @@
 namespace Fytinnovations\Userconnect\Components;
 
 use Cms\Classes\ComponentBase;
-use Fytinnovations\UserConnect\Models\Category;
-use Fytinnovations\UserConnect\Models\Subscriber;
+use Fytinnovations\UserConnect\Models\{Subscription, Category, Subscriber};
 use Lang;
 use October\Rain\Database\ModelException;
 
@@ -15,7 +14,7 @@ class SubscriptionForm extends ComponentBase
      *
      * @var innovations\UserConnect\Models\Subscriber
      */
-    public Subscriber $subscriber;
+    public Subscription $subscription;
 
     /**
      * Text to be displayed on the subscribe button
@@ -102,17 +101,17 @@ class SubscriptionForm extends ComponentBase
      */
     public function onSubscribe(): array
     {
-        // try {
-        $this->subscriber = Subscriber::firstOrCreate(['email' => post('email')]);
-        $this->category->subscribers()->attach($this->subscriber);
-        // } catch (\Throwable $th) {
-        //     if ($th instanceof ModelException) {
-        //         $this->failureMessage = $th->getMessage();
-        //     } else {
-        //         $this->failureMessage = $th->getMessage();
-        //     }
-        // }
+        try {
+            $subscriber = Subscriber::firstOrCreate(['email' => post('email')]);
 
+            $this->subscription = Subscription::create([
+                'subscriber_id' => $subscriber->id,
+                'category_id' => $this->category->id,
+            ]);
+            
+        } catch (\Throwable $th) {
+            $this->failureMessage = $th->getMessage();
+        }
         return ['#subscription-box' => $this->renderPartial('@default')];
     }
 }

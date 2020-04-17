@@ -1,14 +1,25 @@
 <?php
 
 use Cms\Classes\Controller;
-use Fytinnovations\UserConnect\Models\Settings;
-use Fytinnovations\UserConnect\Models\Subscriber;
+use Fytinnovations\UserConnect\Models\{Subscription, Settings, Subscriber};
 
 Route::get('/email_verification/{email}/{verification_key}', function ($email, $verification_key) {
 
-    $isVerified = Subscriber::where('email', $email)->first()->verify($verification_key);
+    try {
+        $subscriptions = Subscriber::where('email', $email)->first()->subscriptions;
+    } catch (\Throwable $th) {
+        return app(Controller::class)->run('/404');
+    }
 
-    if ($isVerified) {
+    $subscriptions->each(function ($subscription) use ($verification_key) {
+        $subscription->verify($verification_key);
+    });
+
+    $verifiedSubscriptions = $subscriptions->filter(function ($subscription) {
+        return $subscription->is_verified;
+    });
+
+    if ($verifiedSubscriptions) {
 
         $verificationSuccessPage = Settings::get('verification_success_page');
 

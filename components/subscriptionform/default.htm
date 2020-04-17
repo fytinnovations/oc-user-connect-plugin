@@ -1,9 +1,9 @@
-{% set subscriber = __SELF__.subscriber %}
+{% set subscription = __SELF__.subscription %}
 {% set subscribeButtonText = __SELF__.subscribeButtonText %}
 {% set successMessage = __SELF__.successMessage %}
 {% set failureMessage = __SELF__.failureMessage %}
 
-{% if subscriber is null %}
+{% if subscription is null %}
 
 {{ form_ajax('onSubscribe') }}
 <div class="row" id="subscription-box">
