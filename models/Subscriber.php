@@ -2,6 +2,7 @@
 
 namespace Fytinnovations\UserConnect\Models;
 
+use Fytinnovations\Userconnect\Models\Subscription;
 use Model;
 use Mail;
 
@@ -36,7 +37,9 @@ class Subscriber extends Model
      * @var array Relations
      */
     public $hasOne = [];
-    public $hasMany = [];
+    public $hasMany = [
+        'subscriptions' => Subscription::class
+    ];
     public $belongsTo = [
         'category' => Subscriber::class
     ];
