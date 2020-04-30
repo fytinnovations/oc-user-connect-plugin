@@ -3,8 +3,9 @@
   - create_subscribers_table.php
 1.0.2:
   - Fix query incompatible by sql_mode=only_full_group_by
-2.0.0:
-  - "!!! Major Update to UserConnect"
+2.0.0: !!! Major Update to UserConnect
+2.0.1:
+  - Adding Categories to Subscribers
   - create_categories_table.php
   - create_subscriptions_table.php
   - seed_all_tables.php
