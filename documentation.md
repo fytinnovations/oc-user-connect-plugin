@@ -8,7 +8,6 @@ You can embed the subscription form on any page which allows user to subscribe t
 
 Sample Markup
 
-```ini
 title = "Demonstration"
 url = "/"
 layout = "default"
