@@ -61,10 +61,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/fytinnovations/oc-user-connect/tags). 
 
-## Authors
-
-**[4nik3t](https://github.com/4nik3t)**
-
 See also the list of [contributors](https://github.com/fytinnovations/oc-user-connect/contributors) who participated in this project.
 
 ## License
