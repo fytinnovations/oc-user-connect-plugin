@@ -2,7 +2,7 @@
 
 ## About
 
-User-connect helps you manage your email subscription list. You now easily add a subscribe segment to your octoberCMS website.
+User-connect helps you manage your email subscription list. You can now easily add a subscribe segment to your octoberCMS website.
 
 ## Features
 
