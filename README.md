@@ -1,6 +1,20 @@
 # User Connect - OctoberCMS Email Subscription Management
 
-Creating and manage email subscription lists with ease.
+## About
+
+User-connect helps you manage your email subscription list. You now easily add a subscribe segment to your octoberCMS website.
+
+## Features
+
+1. Cater Verified Users Only
+
+    - Enabling "verify via email" toggle in the settings page allows you to filter spam users and only serve the verified ones.
+
+2. Efficiently Manage Outgoing Traffic
+    - Websites containing more than one subscription segments can create categories for each segment using the plugin. Visitors to the website can only subscribe to segments which they are interested in.
+
+3. Useful Graphs and Charts
+    - The subscription dashboard of the user connect plugin provides a birds-eye view of your current subscription base. The subscription graphs provides a visualization of the number of users subscribing each day. This graph can be helpful to monitor your current performance and also predict your future trends.
 
 ## Getting Started
 
