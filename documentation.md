@@ -7,7 +7,7 @@ For complete documentation of the plugin visit https://oc-user-connect.fytinnova
 You can embed the subscription form on any page which allows user to subscribe to your website.
 
 Sample Markup
-
+```
 title = "Demonstration"
 url = "/"
 layout = "default"
@@ -40,7 +40,7 @@ category = 2
 The page to redirect the user when the subscription is successful. Once the subscription is verified there is a message embedded automatically in the session you can use the flash twig component on the page to output the message.
 
 Example
-
+```
 title = "Account"
 url = "/account/:code?"
 layout = default
