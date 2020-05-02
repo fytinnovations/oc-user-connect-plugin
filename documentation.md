@@ -41,7 +41,6 @@ The page to redirect the user when the subscription is successful. Once the subs
 
 Example
 
-```ini
 title = "Account"
 url = "/account/:code?"
 layout = default
