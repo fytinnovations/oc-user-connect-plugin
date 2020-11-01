@@ -1,0 +1,20 @@
+{
+    "name": "fytinnovations/oc-userconnect-plugin",
+    "type": "october-plugin",
+    "description": "Creating and manage email subscription lists with ease.",
+    "homepage": "https://octobercms.com/plugin/fytinnovations-userconnect",
+    "keywords": [
+        "october",
+        "octobercms",
+        "userconnect"
+    ],
+    "authors": [
+        {
+            "name": "FYT Innovations",
+            "email": "hello@fytinnovations.com"
+        }
+    ],
+    "require": {
+        "fytinnovations/laravel-topping": "*"
+    }
+}

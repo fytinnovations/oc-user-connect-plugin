@@ -8,9 +8,12 @@ use October\Rain\Database\Updates\Migration;
 use DB;
 use Fytinnovations\UserConnect\Models\Category;
 use Fytinnovations\UserConnect\Models\Subscriber;
+use Fytinnovations\LaravelTopping\Traits\MigrationHelper;
 
 class UpdateSubscribersDropColumns extends Migration
 {
+    use MigrationHelper;
+
     public function up()
     {
         //Migrate data to new tables before deleting columns
@@ -26,12 +29,12 @@ class UpdateSubscribersDropColumns extends Migration
             ]);
         }
 
-        Schema::table('fytinnovations_userconnect_subscribers', function (Blueprint $table) {
-            $table->dropColumn('verification_key');
-            $table->dropColumn('is_verified');
-            $table->dropColumn('verified_at');
-            $table->dropColumn('valid_till');
-        });
+        $this->dropColumnsIfExists('fytinnovations_userconnect_subscribers', [
+            'verification_key',
+            'is_verified',
+            'verified_at',
+            'valid_till'
+        ]);
     }
 
     public function down()
